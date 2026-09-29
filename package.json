@@ -7,7 +7,8 @@
     "deploy:dev": "export AWS_PROFILE='defillama' && export NODE_ENV=dev && npm run deploy:env",
     "deploy": "export NODE_ENV=prod && npm run deploy:env",
     "build": "sls package",
-    "test": "jest",
+    "test": "jest && npm run test:api",
+    "test:api": "node test/api/app.test.js",
     "migrate": "node-pg-migrate",
     "start:api": "node src/api/server",
     "start:holder-daily": "node src/scheduled/holderDaily.js"
@@ -31,6 +32,7 @@
     "dotenv": "^10.0.0",
     "ethers": "^5.7.2",
     "express": "^4.18.2",
+    "express-rate-limit": "^7.4.1",
     "graphql": "^15.5.1",
     "graphql-request": "^7.4.0",
     "helmet": "^7.0.0",
